@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12009.208 insiders
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupApp", "BackupApp\BackupApp.csproj", "{617761E4-CF9E-48C9-ABB3-BD46238DE43A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupApp.Tests", "BackupApp.Tests\BackupApp.Tests.csproj", "{46D2505B-301D-42B4-B002-B27ABDB34539}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{617761E4-CF9E-48C9-ABB3-BD46238DE43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617761E4-CF9E-48C9-ABB3-BD46238DE43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617761E4-CF9E-48C9-ABB3-BD46238DE43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617761E4-CF9E-48C9-ABB3-BD46238DE43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D2505B-301D-42B4-B002-B27ABDB34539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D2505B-301D-42B4-B002-B27ABDB34539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D2505B-301D-42B4-B002-B27ABDB34539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D2505B-301D-42B4-B002-B27ABDB34539}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD82155F-4222-433C-9EF8-9D35B039BA51}
+	EndGlobalSection
+EndGlobal

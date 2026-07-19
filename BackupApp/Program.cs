@@ -56,7 +56,6 @@ catch (BackupException ex)
 }
 catch (Exception ex)
 {
-    // Страховочная сетка для неизвестных ошибок
     Log.Fatal(ex, "Critical error");
 
     Environment.ExitCode = 2;

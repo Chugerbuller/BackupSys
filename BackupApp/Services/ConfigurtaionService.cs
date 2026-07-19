@@ -13,7 +13,7 @@ public class ConfigurationService : IConfigurationService
     public BackupSettings GetSettings(string path) { 
         if (string.IsNullOrWhiteSpace(path))
         {
-            throw new BackupException(ErrorCode.ConfigInitProblem, "Путь к файлу конфигурации не может быть пустым.");
+            throw new BackupException(ErrorCode.ConfigInitProblem, "The path to the configuration file cannot be empty.");
         }
 
         try
@@ -26,7 +26,7 @@ public class ConfigurationService : IConfigurationService
 
             if (!File.Exists(fullPath))
             {
-                throw new BackupException(ErrorCode.ConfigInitProblem, $"Файл конфигурации не найден по пути: {fullPath}");
+                throw new BackupException(ErrorCode.ConfigInitProblem, $"Configuration file not found at path: {fullPath}");
             }
 
             var directory = Path.GetDirectoryName(fullPath) ?? AppDomain.CurrentDomain.BaseDirectory;
@@ -41,7 +41,7 @@ public class ConfigurationService : IConfigurationService
 
             if (settings is null)
             {
-                throw new BackupException(ErrorCode.ConfigInitProblem, "Секция 'BackupSettings' отсутствует в файле конфигурации.");
+                throw new BackupException(ErrorCode.ConfigInitProblem, "The 'BackupSettings' section is missing from the configuration file.");
             }
 
             // Обязательно валидируем данные перед тем, как отдать их программе
@@ -52,17 +52,17 @@ public class ConfigurationService : IConfigurationService
         catch (FormatException ex)
         {
             Console.WriteLine($"FormatException: {ex.Message}");
-            throw ex;
+            throw;
         }
         catch (FileNotFoundException ex)
         {
             Console.WriteLine($"FileNotFoundException: {ex.Message}");
-            throw ex;
+            throw;
         }
         catch (Exception ex)
         {
             // Перехватываем любые системные ошибки (JSON, IO) и бережно упаковываем в наше исключение
-            throw new BackupException(ErrorCode.ConfigInitProblem, $"Критическая ошибка при чтении конфигурации: {ex.Message}");
+            throw new BackupException(ErrorCode.ConfigInitProblem, $"Critical error reading configuration: {ex.Message}");
         }
     }
 
@@ -70,12 +70,12 @@ public class ConfigurationService : IConfigurationService
     {
         if (settings.SourceFolders == null || !settings.SourceFolders.Any())
         {
-            throw new BackupException(ErrorCode.ConfigInvalidFormat, "Список исходных папок (SourceFolders) пуст или не задан.");
+            throw new BackupException(ErrorCode.ConfigInvalidFormat, "The list of source folders (SourceFolders) is empty or not specified.");
         }
 
         if (string.IsNullOrWhiteSpace(settings.TargetFolder))
         {
-            throw new BackupException(ErrorCode.ConfigInvalidFormat, "Целевая папка (TargetFolder) не указана.");
+            throw new BackupException(ErrorCode.ConfigInvalidFormat, "The target folder (TargetFolder) is not specified.");
         }
 
         // Проверяем, что исходные папки вообще существуют физически
@@ -83,7 +83,7 @@ public class ConfigurationService : IConfigurationService
         {
             if (string.IsNullOrWhiteSpace(source))
             {
-                throw new BackupException(ErrorCode.ConfigInvalidFormat, "Обнаружен пустой путь в списке исходных папок.");
+                throw new BackupException(ErrorCode.ConfigInvalidFormat, "An empty path was found in the list of source folders.");
             }
         }
     }

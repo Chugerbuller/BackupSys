@@ -19,7 +19,7 @@ public class BackupResult
     public override string ToString()
     {
         double sizeInMb = Memory / 1024.0 / 1024.0;
-        return $"Успешно скопировано файлов: {Files} | Общий объем: {sizeInMb:F2} МБ";
+        return $"Files successfully copied: {Files} | Total volume: {sizeInMb:F2} MB";
     }
     public string ErrorsToString()
     {
@@ -27,7 +27,7 @@ public class BackupResult
         sb.AppendLine(); // Начнем с новой строки для красоты в логах
         foreach (var item in Errors)
         {
-            sb.AppendLine($"  - {item.Key} -> Ошибка: {item.Value}");
+            sb.AppendLine($"  - {item.Key} -> Error: {item.Value}");
         }
         return sb.ToString();
     }

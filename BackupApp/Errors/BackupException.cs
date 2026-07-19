@@ -11,8 +11,5 @@ public enum ErrorCode
 public class BackupException : Exception
 {
     public ErrorCode Code { get; }
-    public BackupException(ErrorCode code, string msg) : base(msg)
-    {
-        Code = code;
-    }
+    public BackupException(ErrorCode code, string msg) : base(msg) => Code = code;
 }
